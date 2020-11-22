@@ -1,0 +1,29 @@
+{{#if this.roundEnded}}
+
+  <div>
+    <button type="button" class="bg-cyan-500 text-white px-4 py-2 rounded" {{on "click" this.newGame}}>
+      New Game
+    </button>
+  </div>
+
+  <div class="mt-8">
+    {{#if this.winningPlayer}}
+      <div>
+        Player <span>{{this.winningPlayer}}</span> Wins!
+
+        <br>
+
+        {{this.playerOneItem}} / {{this.playerTwoItem}}
+      </div>
+    {{else}}
+      <div>
+        Cat Tail!
+      </div>
+    {{/if}}
+  </div>
+{{else}}
+  <div class="flex justify-between">
+    <ItemPicker @player={{1}} @key="Space" @onChoose={{this.itemChosen}} />
+    <ItemPicker @player={{2}} @key="Enter" @onChoose={{this.itemChosen}} />
+  </div>
+{{/if}}

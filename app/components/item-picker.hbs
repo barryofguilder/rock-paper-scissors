@@ -1,0 +1,14 @@
+<div
+  class="p-12"
+  {{did-insert this.iterateItem}}
+  {{on-key @key this.chooseItem}}
+  ...attributes
+>
+  {{#if this.chosenItem}}
+    Poops!
+  {{else}}
+    <div class="text-xl font-bold">
+      {{this.item}}
+    </div>
+  {{/if}}
+</div>
