@@ -1,14 +1,35 @@
 <div
   class="p-12"
-  {{did-insert this.iterateItem}}
-  {{on-key @key this.chooseItem}}
+  {{did-insert this.setupAndStart}}
   ...attributes
 >
   {{#if this.chosenItem}}
-    Poops!
+    Done
   {{else}}
-    <div class="text-xl font-bold">
-      {{this.item}}
-    </div>
+    {{#if (eq @mode 'random')}}
+      <div class="text-xl font-bold" {{on-key this.player.randomKey this.chooseItem}}>
+        {{this.item}}
+      </div>
+    {{else}}
+      <div
+        class="flex"
+        {{on-key this.player.rockKey this.chooseRock}}
+        {{on-key this.player.paperKey this.choosePaper}}
+        {{on-key this.player.scissorKey this.chooseScissor}}
+      >
+        <div>
+          <div>Rock</div>
+          <div>xxx</div>
+        </div>
+        <div>
+          <div>Paper</div>
+          <div>xxx</div>
+        </div>
+        <div>
+          <div>Scissors</div>
+          <div>xxx</div>
+        </div>
+      </div>
+    {{/if}}
   {{/if}}
 </div>

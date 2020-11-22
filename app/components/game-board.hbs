@@ -23,7 +23,7 @@
   </div>
 {{else}}
   <div class="flex justify-between">
-    <ItemPicker @player={{1}} @key="Space" @onChoose={{this.itemChosen}} />
-    <ItemPicker @player={{2}} @key="Enter" @onChoose={{this.itemChosen}} />
+    <ItemPicker @player={{1}} @mode="choose" @onChoose={{this.itemChosen}} />
+    <ItemPicker @player={{2}} @mode="choose" @onChoose={{this.itemChosen}} />
   </div>
 {{/if}}
