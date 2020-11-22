@@ -25,6 +25,7 @@ module.exports = {
         '.eslintrc.js',
         '.prettierrc.js',
         '.template-lintrc.js',
+        'app/tailwind.config.js',
         'ember-cli-build.js',
         'testem.js',
         'blueprints/*/index.js',
