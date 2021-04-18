@@ -73,10 +73,7 @@ export default class ItemPickerComponent extends Component {
     this.iterateItem();
   }
 
-  @action
-  setupAndStart() {
-    this.player = new Player(this.args.player, this.args.mode);
-
+  iterateItem() {
     if (this.args.mode === 'random') {
       later(
         this,
@@ -86,6 +83,13 @@ export default class ItemPickerComponent extends Component {
         this.interval
       );
     }
+  }
+
+  @action
+  setupAndStart() {
+    this.player = new Player(this.args.player, this.args.mode);
+
+    this.iterateItem();
   }
 
   @action

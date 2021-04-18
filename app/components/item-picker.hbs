@@ -1,6 +1,7 @@
 <div
   class="p-12"
   {{did-insert this.setupAndStart}}
+  {{did-update this.setupAndStart @mode}}
   ...attributes
 >
   {{#if this.chosenItem}}
@@ -17,17 +18,17 @@
         {{on-key this.player.paperKey this.choosePaper}}
         {{on-key this.player.scissorKey this.chooseScissor}}
       >
-        <div>
-          <div>Rock</div>
-          <div>xxx</div>
+        <div class="w-24 px-4 py-2 bg-cyan-100 text-cyan-900 text-center">
+          <div class="text-md font-semibold">Rock</div>
+          <div class="text-sm text-cyan-700">key: <span class="font-bold">{{this.player.rockKey}}</span></div>
         </div>
-        <div>
-          <div>Paper</div>
-          <div>xxx</div>
+        <div class="w-24 ml-2 px-4 py-2 bg-cyan-100 text-cyan-900 text-center">
+          <div class="text-md font-semibold">Paper</div>
+          <div class="text-sm text-cyan-700">key: <span class="font-bold">{{this.player.paperKey}}</span></div>
         </div>
-        <div>
-          <div>Scissors</div>
-          <div>xxx</div>
+        <div class="w-24 ml-2 px-4 py-2 bg-cyan-100 text-cyan-900 text-center">
+          <div class="text-md font-semibold">Scissors</div>
+          <div class="text-sm text-cyan-700">key: <span class="font-bold">{{this.player.scissorKey}}</span></div>
         </div>
       </div>
     {{/if}}

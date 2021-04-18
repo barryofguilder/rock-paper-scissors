@@ -1,9 +1,23 @@
-{{#if this.roundEnded}}
+<div class="flex" {{on-key "n" this.newGame}} {{on-key "b" this.newGame}}>
+  <button type="button" class="bg-cyan-500 text-white px-4 py-2 rounded" {{on "click" this.newGame}}>
+    New Game
+  </button>
+  <button type="button" class="ml-2 bg-white text-black px-4 py-2 rounded border border-gray-400" {{on "click" this.resetScores}}>
+    Reset Score
+  </button>
+  <button type="button" class="ml-2 bg-white text-black px-4 py-2 rounded border border-gray-400" {{on "click" this.changeMode}}>
+    Change Mode
+  </button>
+</div>
 
-  <div>
-    <button type="button" class="bg-cyan-500 text-white px-4 py-2 rounded" {{on "click" this.newGame}}>
-      New Game
-    </button>
+{{#if this.roundEnded}}
+  <div class="flex mt-8">
+    <div>
+      Player 1: <span class="font-semibold">{{this.playerOneScore}}</span>
+    </div>
+    <div class="ml-6">
+      Player 2: <span class="font-semibold">{{this.playerTwoScore}}</span>
+    </div>
   </div>
 
   <div class="mt-8">
@@ -18,12 +32,16 @@
     {{else}}
       <div>
         Cat Tail!
+
+        <br>
+
+        Both selected <span class="font-semibold">{{this.playerOneItem}}</span>
       </div>
     {{/if}}
   </div>
 {{else}}
   <div class="flex justify-between">
-    <ItemPicker @player={{1}} @mode="choose" @onChoose={{this.itemChosen}} />
-    <ItemPicker @player={{2}} @mode="choose" @onChoose={{this.itemChosen}} />
+    <ItemPicker @player={{1}} @mode={{this.mode}} @onChoose={{this.itemChosen}} />
+    <ItemPicker @player={{2}} @mode={{this.mode}} @onChoose={{this.itemChosen}} />
   </div>
 {{/if}}
